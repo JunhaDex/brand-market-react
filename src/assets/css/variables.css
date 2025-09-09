@@ -1,1 +1,82 @@
-@theme {}
+/* Default: light */
+@theme {
+    --layout-breakpoint: 430px; /* iphone pro max */
+    --color-background-1: #f9fafb;
+    --color-background-2: #f2f2f2;
+    --color-background-3: #e8e8e8;
+    --color-tx-gray-1: #111827;
+    --color-tx-gray-2: #282828;
+    --color-tx-gray-3: #4b4b4b;
+    --color-border-default: #eaeaea;
+    --color-border-hover: #c9c9c9;
+    --color-border-active: #a8a8a8;
+    --color-tx-primary: #0067d6;
+    --color-tx-red: #da3036;
+    --color-tx-amber: #ff990a;
+    --color-tx-green: #388e4a;
+    --color-tx-purple: #763da9;
+    --color-bg-primary: #e1f0ff;
+    --color-bg-secondary: #8f8f8f;
+    --color-bg-red: #ffe5e5;
+    --color-bg-amber: #fef0cd;
+    --color-bg-green: #dcf6dc;
+    --color-bg-purple: #f3e7fc;
+}
+:root {
+    --icon-url: 'none';
+    --v-s-default: var(--color-background-2);
+    --v-s-default-darker: hsl(from var(--v-s-default) h s calc(l - 10));
+    --v-s-default-lighter: hsl(from var(--v-s-default) h s calc(l + 10));
+    --v-s-primary: var(--color-tx-primary);
+    --v-s-primary-darker: hsl(from var(--v-s-primary) h s calc(l - 10));
+    --v-s-primary-lighter: hsl(from var(--v-s-primary) h s calc(l + 10));
+    --v-s-red: var(--color-tx-red);
+    --v-s-red-darker: hsl(from var(--v-s-red) h s calc(l - 10));
+    --v-s-red-lighter: hsl(from var(--v-s-red) h s calc(l + 10));
+    --v-s-amber: var(--color-tx-amber);
+    --v-s-amber-darker: hsl(from var(--v-s-amber) h s calc(l - 10));
+    --v-s-amber-lighter: hsl(from var(--v-s-amber) h s calc(l + 10));
+    --v-s-green: var(--color-tx-green);
+    --v-s-green-darker: hsl(from var(--v-s-green) h s calc(l - 10));
+    --v-s-green-lighter: hsl(from var(--v-s-green) h s calc(l + 10));
+    --v-s-purple: var(--color-tx-purple);
+    --v-s-purple-darker: hsl(from var(--v-s-purple) h s calc(l - 10));
+    --v-s-purple-lighter: hsl(from var(--v-s-purple) h s calc(l + 10));
+    --v-s-outline: var(--color-tx-gray-1);
+    --v-s-outline-darkest: hsl(from var(--v-s-outline) h s calc(l - 15));
+    --v-s-outline-lightest: hsl(from var(--v-s-outline) h s calc(l + 15));
+}
+
+.theme-dark {
+    --color-background-1: #0a0a0a;
+    --color-background-2: #282828;
+    --color-background-3: #4b4b4b;
+    --color-tx-gray-1: #ffffff;
+    --color-tx-gray-2: #dddddd;
+    --color-tx-gray-3: #a6a6a6;
+    --color-border-default: #2e2e2e;
+    --color-border-hover: #454545;
+    --color-border-active: #878787;
+    --color-bg-primary: #0f3058;
+    --color-bg-red: #551A1E;
+    --color-bg-amber: #4a2900;
+    --color-bg-green: #11351b;
+    --color-bg-purple: #432155;
+}
+
+.theme-light {
+    --color-background-1: #f9fafb;
+    --color-background-2: #f2f2f2;
+    --color-background-3: #e8e8e8;
+    --color-tx-gray-1: #111827;
+    --color-tx-gray-2: #282828;
+    --color-tx-gray-3: #8e8e8e;
+    --color-border-default: #eaeaea;
+    --color-border-hover: #c9c9c9;
+    --color-border-active: #a8a8a8;
+    --color-bg-primary: #e1f0ff;
+    --color-bg-red: #ffe5e5;
+    --color-bg-amber: #fef0cd;
+    --color-bg-green: #dcf6dc;
+    --color-bg-purple: #f3e7fc;
+}

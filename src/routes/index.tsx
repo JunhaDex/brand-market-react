@@ -6,13 +6,15 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import HomePage from '@/pages/Home/Index.tsx'
-import DetailPage from '@/pages/Detail/Index.tsx'
-import CartPage from '@/pages/Cart/Index.tsx'
+import { lazy } from 'react'
+import MobileView from '@/components/layouts/MobileView.tsx'
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
-      <Outlet />
+      <MobileView>
+        <Outlet />
+      </MobileView>
       <TanStackRouterDevtools />
     </>
   ),
@@ -27,13 +29,13 @@ const indexRoute = createRoute({
 const detailRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: 'product/$id',
-  component: DetailPage,
+  component: lazy(() => import('@/pages/Detail/Index.tsx')),
 })
 
 const cartRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: 'cart',
-  component: CartPage,
+  component: lazy(() => import('@/pages/Cart/Index.tsx')),
 })
 
 const routeTree = rootRoute.addChildren([indexRoute, detailRoute, cartRoute])

@@ -1,57 +1,11 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import {
-  Outlet,
-  RouterProvider,
-  createRootRoute,
-  createRoute,
-  createRouter,
-} from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-import StoreDemo from './routes/demo.store.tsx'
-import TanStackQueryDemo from './routes/demo.tanstack-query.tsx'
-
-
 import * as TanStackQueryProvider from './integrations/tanstack-query/root-provider.tsx'
-
-import './styles.css'
-import reportWebVitals from './reportWebVitals.ts'
-
-import App from './App.tsx'
-
-const rootRoute = createRootRoute({
-  component: () => (
-    <>
-      <Header />
-      <Outlet />
-      <TanStackRouterDevtools />
-    </>
-  ),
-})
-
-const indexRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/',
-  component: App,
-})
-
-const routeTree = rootRoute.addChildren([
-  indexRoute,
-  StoreDemo(rootRoute),
-  TanStackQueryDemo(rootRoute),
-])
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from '@/routes'
+import '@/assets/css/main.css'
 
 const TanStackQueryProviderContext = TanStackQueryProvider.getContext()
-const router = createRouter({
-  routeTree,
-  context: {
-    ...TanStackQueryProviderContext,
-  },
-  defaultPreload: 'intent',
-  scrollRestoration: true,
-  defaultStructuralSharing: true,
-  defaultPreloadStaleTime: 0,
-})
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -70,8 +24,3 @@ if (rootElement && !rootElement.innerHTML) {
     </StrictMode>,
   )
 }
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
