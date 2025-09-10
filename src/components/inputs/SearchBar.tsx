@@ -2,7 +2,6 @@ import SearchFilter from '@/components/inputs/SearchFilter.tsx'
 import SearchSort from '@/components/inputs/SearchSort.tsx'
 import { useReducer } from 'react'
 import { Search } from 'lucide-react'
-import * as events from 'node:events'
 
 interface SearchBarProps {
   isOpen: boolean

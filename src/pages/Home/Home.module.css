@@ -27,11 +27,16 @@
         width: 100%;
         aspect-ratio: 1;
         border-radius: 0.5rem;
+        overflow: hidden;
 
         .badgePreview {
             position: absolute;
             top: 0.5rem;
             left: 0.5rem;
+        }
+
+        img {
+            height: 100%;
         }
     }
 
@@ -47,7 +52,21 @@
         }
 
         & .price {
+            display: flex;
+            align-items: center;
+            gap: 0.15rem;
             font-weight: var(--font-weight-semibold);
+
+            * {
+                display: inline-block;
+            }
+
+            & .before {
+                text-decoration: line-through;
+                color: var(--color-tx-gray-3);
+                font-weight: var(--font-weight-medium);
+                font-size: var(--text-xs);
+            }
         }
     }
 }

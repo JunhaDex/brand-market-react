@@ -3,16 +3,20 @@ import Header from '@/components/navigations/Header.tsx'
 import SearchBar from '@/components/inputs/SearchBar.tsx'
 import ItemCard from './ItemCard.tsx'
 import ScrollObserver from '@/components/layouts/ScrollObserver.tsx'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import useHomeStore from '@/stores/Home.store.ts'
+import { useInfiniteProductList } from '@/queries/Product.query.ts'
 
 export default function HomePage() {
   const homeStore = useHomeStore()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-
+  const { data, isLoading } = useInfiniteProductList()
+  const products = useMemo(() => {
+    return data?.pages.flatMap((page) => page.list) ?? []
+  })
 
   function toggleSearch() {
-    setIsSearchOpen(!isSearchOpen)
+    setIsSearchOpen((v) => !v)
   }
 
   useEffect(() => {
@@ -25,9 +29,9 @@ export default function HomePage() {
       <main>
         <SearchBar isOpen={isSearchOpen} />
         <div className={styles.productList}>
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
+          {products.map((product) => (
+            <ItemCard key={product.id} product={product} />
+          ))}
         </div>
         <ScrollObserver />
       </main>

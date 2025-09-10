@@ -1,3 +1,9 @@
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 input, textarea {
     padding: 0.5rem 0.75rem;
     border: 1px solid var(--color-border-default);

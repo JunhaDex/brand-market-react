@@ -9,6 +9,7 @@ export interface Product {
   }
   images: string[]
   filters: string[]
+  createdAt: string
   review: {
     rating: number
     count: number

@@ -8,8 +8,7 @@ export default function SearchSort() {
   useEffect(() => {
     if (!isOpen) return
     const onClick = (e: Event) => {
-      if (!selectRef.current) return
-      if (!selectRef.current.contains(e.target as Node)) {
+      if (!selectRef.current?.contains(e.target as Node)) {
         setIsOpen(false)
       }
     }

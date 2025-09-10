@@ -1,0 +1,410 @@
+{
+  "1": {
+    "code": 200,
+    "data": [
+      {
+        "id": "1",
+        "title": "호텔 수건 30수 150g, 데일리타월, 화이트 10장",
+        "description": "30수 150g의 수건은 데일리수건의 정석입니다. 한층 더 가볍고 놀랍도록 부드러운 수건과 함께 산뜻한 하루를 시작하세요.",
+        "tag": "베스트 판매자",
+        "price": {
+          "original": "28000",
+          "discount": "22900"
+        },
+        "images": [
+          "/storage/products/1_1.png",
+          "/storage/products/1_2.png",
+          "/storage/products/1_3.png"
+        ],
+        "filters": [
+          "discount",
+          "premium"
+        ],
+        "createdAt": "2025-08-15 10:30:00",
+        "review": {
+          "rating": 4.7,
+          "count": 821
+        }
+      },
+      {
+        "id": "2",
+        "title": "QCY T13 ANC 블루투스 이어폰, 블랙",
+        "description": "액티브 노이즈 캔슬링 기능으로 주변 소음 없이 음악에만 집중하세요. 가성비 최고의 무선 이어폰입니다.",
+        "tag": "해외직구",
+        "price": {
+          "original": "25000",
+          "discount": "19900"
+        },
+        "images": [
+          "/storage/products/2_1.png"
+        ],
+        "filters": [
+          "discount",
+          "abroad",
+          "new"
+        ],
+        "createdAt": "2025-09-01 11:00:00",
+        "review": {
+          "rating": 4.5,
+          "count": 988
+        }
+      },
+      {
+        "id": "3",
+        "title": "유기농 대추방울토마토 1kg",
+        "description": "농장에서 갓 수확한 신선한 유기농 대추방울토마토입니다. 첨가물 없이 자연 그대로의 맛을 느껴보세요.",
+        "tag": "",
+        "price": {
+          "original": "15000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/3_1.png"
+        ],
+        "filters": [
+          "new"
+        ],
+        "createdAt": "2025-09-09 08:20:15",
+        "review": {
+          "rating": 4.9,
+          "count": 312
+        }
+      },
+      {
+        "id": "4",
+        "title": "알루미늄 접이식 노트북 거치대",
+        "description": "가볍고 견고한 알루미늄 소재로 제작되었습니다. 각도 조절이 자유로워 거북목 예방에 효과적입니다.",
+        "tag": "오늘만 특가",
+        "price": {
+          "original": "18000",
+          "discount": "13500"
+        },
+        "images": [
+          "/storage/products/4_1.png"
+        ],
+        "filters": [
+          "discount"
+        ],
+        "createdAt": "2025-07-22 14:00:55",
+        "review": {
+          "rating": 4.6,
+          "count": 550
+        }
+      },
+      {
+        "id": "5",
+        "title": "프리미엄 딥디크 스타일 차량용 방향제",
+        "description": "고급스러운 향으로 차량 내부를 채워보세요. 프리미엄 에센셜 오일을 사용하여 발향이 오래 지속됩니다.",
+        "tag": "",
+        "price": {
+          "original": "22000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/5_1.png"
+        ],
+        "filters": [
+          "premium",
+          "new"
+        ],
+        "createdAt": "2025-09-05 18:45:10",
+        "review": {
+          "rating": 4.8,
+          "count": 201
+        }
+      },
+      {
+        "id": "6",
+        "title": "핸드드립 커피백 예가체프 20개입",
+        "description": "에티오피아 예가체프 원두의 화사한 산미와 꽃향기를 간편하게 즐길 수 있는 드립백 커피입니다.",
+        "tag": "신상품",
+        "price": {
+          "original": "19900",
+          "discount": "16900"
+        },
+        "images": [
+          "/storage/products/6_1.png"
+        ],
+        "filters": [
+          "new"
+        ],
+        "createdAt": "2025-08-30 09:10:00",
+        "review": {
+          "rating": 4.7,
+          "count": 433
+        }
+      },
+      {
+        "id": "7",
+        "title": "경추 메모리폼 베개, 커버 포함",
+        "description": "수면 중 목을 편안하게 지지하여 숙면을 도와주는 인체공학적 디자인의 메모리폼 베개입니다.",
+        "tag": "",
+        "price": {
+          "original": "35000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/7_1.png"
+        ],
+        "filters": [],
+        "createdAt": "2025-06-10 21:30:45",
+        "review": {
+          "rating": 4.4,
+          "count": 680
+        }
+      },
+      {
+        "id": "8",
+        "title": "2025년 시즌 한정판 벚꽃 텀블러 500ml",
+        "description": "오직 봄 시즌에만 만나볼 수 있는 한정판 벚꽃 디자인 텀블러입니다. 보온/보냉 기능이 뛰어납니다.",
+        "tag": "시즌 한정",
+        "price": {
+          "original": "29000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/8_1.png"
+        ],
+        "filters": [
+          "season",
+          "new",
+          "premium"
+        ],
+        "createdAt": "2025-03-15 12:00:00",
+        "review": {
+          "rating": 4.9,
+          "count": 150
+        }
+      },
+      {
+        "id": "9",
+        "title": "이탈리아 직수입 천연 가죽 벨트",
+        "description": "이탈리아 장인이 만든 100% 천연 소가죽 벨트. 시간이 지날수록 멋스러워지는 프리미엄 제품입니다.",
+        "tag": "해외직구",
+        "price": {
+          "original": "89000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/9_1.png"
+        ],
+        "filters": [
+          "abroad",
+          "premium"
+        ],
+        "createdAt": "2025-05-20 17:15:00",
+        "review": {
+          "rating": 4.8,
+          "count": 95
+        }
+      },
+      {
+        "id": "10",
+        "title": "스마트 LED 스탠드 (밝기 및 색온도 조절)",
+        "description": "학습, 독서, 휴식 등 상황에 맞게 밝기와 색온도를 조절할 수 있는 스마트 LED 스탠드입니다.",
+        "tag": "리뷰 이벤트",
+        "price": {
+          "original": "42000",
+          "discount": "34900"
+        },
+        "images": [
+          "/storage/products/10_1.png"
+        ],
+        "filters": [
+          "discount"
+        ],
+        "createdAt": "2025-08-01 11:55:20",
+        "review": {
+          "rating": 4.6,
+          "count": 378
+        }
+      }
+    ],
+    "paginate": {
+      "total": 18,
+      "pageNo": "1",
+      "hasNext": true
+    }
+  },
+  "2": {
+    "code": 200,
+    "data": [
+      {
+        "id": "11",
+        "title": "제주 서귀포 노지 감귤 5kg (가정용)",
+        "description": "제주도의 햇살과 해풍을 맞고 자란 새콤달콤한 노지 감귤입니다. 비타민C가 풍부하여 환절기 건강에 좋습니다.",
+        "tag": "시즌 특가",
+        "price": {
+          "original": "25000",
+          "discount": "19900"
+        },
+        "images": [
+          "/storage/products/11_1.png"
+        ],
+        "filters": [
+          "season",
+          "discount"
+        ],
+        "createdAt": "2024-11-25 10:00:00",
+        "review": {
+          "rating": 4.8,
+          "count": 789
+        }
+      },
+      {
+        "id": "12",
+        "title": "로지텍 G Pro 무선 게이밍 마우스",
+        "description": "프로게이머를 위해 설계된 초경량 고성능 무선 게이밍 마우스. 정확하고 빠른 반응 속도를 경험하세요.",
+        "tag": "",
+        "price": {
+          "original": "149000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/12_1.png"
+        ],
+        "filters": [
+          "premium"
+        ],
+        "createdAt": "2025-07-11 16:20:30",
+        "review": {
+          "rating": 4.9,
+          "count": 912
+        }
+      },
+      {
+        "id": "13",
+        "title": "캐시미어 100% 겨울 목도리, 그레이",
+        "description": "부드러운 촉감과 뛰어난 보온성을 자랑하는 100% 캐시미어 목도리입니다. 겨울 시즌을 위한 최고의 선물입니다.",
+        "tag": "겨울 시즌오프",
+        "price": {
+          "original": "98000",
+          "discount": "78000"
+        },
+        "images": [
+          "/storage/products/13_1.png"
+        ],
+        "filters": [
+          "season",
+          "premium",
+          "discount"
+        ],
+        "createdAt": "2024-12-10 13:00:00",
+        "review": {
+          "rating": 4.7,
+          "count": 230
+        }
+      },
+      {
+        "id": "14",
+        "title": "스탠리 퀜처 H2.0 플로우스테이트 텀블러 887ml",
+        "description": "강력한 보온, 보냉 성능을 자랑하는 스탠리 텀블러입니다. 넉넉한 용량으로 하루 종일 음료를 즐길 수 있습니다.",
+        "tag": "해외직구",
+        "price": {
+          "original": "59000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/14_1.png"
+        ],
+        "filters": [
+          "abroad",
+          "new"
+        ],
+        "createdAt": "2025-09-02 20:00:00",
+        "review": {
+          "rating": 4.9,
+          "count": 670
+        }
+      },
+      {
+        "id": "15",
+        "title": "LG 퓨리케어 공기청정기 AS120V",
+        "description": "360도 모든 방향에서 먼지를 흡입하고 깨끗한 공기를 보내주는 공기청정기입니다. 초미세먼지까지 99.9% 제거합니다.",
+        "tag": "",
+        "price": {
+          "original": "359000",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/15_1.png"
+        ],
+        "filters": [],
+        "createdAt": "2025-04-03 15:10:00",
+        "review": {
+          "rating": 4.8,
+          "count": 890
+        }
+      },
+      {
+        "id": "16",
+        "title": "원터치 반려동물 그루밍 브러쉬",
+        "description": "버튼 하나로 브러쉬에 낀 털을 손쉽게 제거할 수 있습니다. 반려동물의 죽은 털을 효과적으로 관리하세요.",
+        "tag": "무료배송",
+        "price": {
+          "original": "12000",
+          "discount": "8900"
+        },
+        "images": [
+          "/storage/products/16_1.png"
+        ],
+        "filters": [
+          "discount"
+        ],
+        "createdAt": "2025-08-25 09:00:00",
+        "review": {
+          "rating": 4.5,
+          "count": 482
+        }
+      },
+      {
+        "id": "17",
+        "title": "몰스킨 클래식 하드커버 노트북 (L사이즈, 룰드)",
+        "description": "전 세계 아티스트와 작가들에게 사랑받는 몰스킨 노트북입니다. 당신의 아이디어와 기록을 담아보세요.",
+        "tag": "",
+        "price": {
+          "original": "29700",
+          "discount": ""
+        },
+        "images": [
+          "/storage/products/17_1.png"
+        ],
+        "filters": [
+          "premium"
+        ],
+        "createdAt": "2025-01-18 19:40:00",
+        "review": {
+          "rating": 4.9,
+          "count": 765
+        }
+      },
+      {
+        "id": "18",
+        "title": "샤오미 전동 와인 오프너 세트",
+        "description": "버튼 하나로 손쉽게 와인 코르크를 열 수 있는 전동 오프너입니다. 와인을 즐기는 순간을 더욱 특별하게 만들어줍니다.",
+        "tag": "해외직구",
+        "price": {
+          "original": "24000",
+          "discount": "18500"
+        },
+        "images": [
+          "/storage/products/18_1.png"
+        ],
+        "filters": [
+          "abroad",
+          "discount"
+        ],
+        "createdAt": "2025-07-07 22:11:22",
+        "review": {
+          "rating": 4.6,
+          "count": 511
+        }
+      }
+    ],
+    "paginate": {
+      "total": 18,
+      "pageNo": "2",
+      "hasNext": false
+    }
+  }
+}

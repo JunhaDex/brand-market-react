@@ -10,7 +10,7 @@ interface HeaderProps {
 export default function Header({ events }: HeaderProps) {
   return (
     <header className="header">
-      <h1 className="header-content">My Application</h1>
+      <h1 className="header-content">쇼핑 홈</h1>
       <nav className="nav-list">
         <ul className="flex items-center gap-2">
           <li

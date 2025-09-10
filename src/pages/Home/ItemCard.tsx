@@ -1,26 +1,43 @@
 import styles from './Home.module.css'
 import { Star } from 'lucide-react'
+import type { Product } from '@/types/product.type.ts'
+import { Link } from '@tanstack/react-router'
 
-export default function ItemCard() {
+interface ItemCardProps {
+  product: Product
+}
+
+export default function ItemCard({ product }: ItemCardProps) {
+  const discountPrice = product.price.discount ? (
+    <>
+      <span>{Number(product.price.discount).toLocaleString()} 원</span>
+      <span className={styles.before}>
+        {Number(product.price.original).toLocaleString()} 원
+      </span>
+    </>
+  ) : (
+    <span>{Number(product.price.original).toLocaleString()} 원</span>
+  )
   return (
-    <div className={styles.itemCard}>
+    <Link to={`/product/${product.id}`} className={styles.itemCard}>
       <div className={styles.preview}>
-        <span className={`badge badge-primary ${styles.badgePreview}`}>
-          20% 할인중
-        </span>
+        {product.tag ? (
+          <span className={`badge badge-primary ${styles.badgePreview}`}>
+            {product.tag}
+          </span>
+        ) : null}
+        <img src={product.images[0]} alt={product.title} />
       </div>
       <div className={styles.details}>
-        <p>상품상품명상품상품명상품상품명상품상품명상품상품명</p>
-        <div className={styles.price}>
-          <span>23,000 원</span>
-        </div>
+        <p>{product.title}</p>
+        <div className={styles.price}>{discountPrice}</div>
         <div>
           <span className="flex plate">
             <Star fill="var(--color-tx-amber)" strokeWidth={0} />
-            4.5 (100)
+            {`${product.review.rating} (${product.review.count})`}
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
