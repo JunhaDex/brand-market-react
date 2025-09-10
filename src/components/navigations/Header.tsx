@@ -1,12 +1,23 @@
 import { Link } from '@tanstack/react-router'
-import { Home, ShoppingCart, Sun } from 'lucide-react'
+import { Home, Search, ShoppingCart, Sun } from 'lucide-react'
 
-export default function Header() {
+interface HeaderProps {
+  events?: {
+    onSearch?: () => void
+  }
+}
+
+export default function Header({ events }: HeaderProps) {
   return (
     <header className="header">
       <h1 className="header-content">My Application</h1>
       <nav className="nav-list">
         <ul className="flex items-center gap-2">
+          <li className="nav-item" onClick={if(events?.onSearch)events?.onSearch()}>
+            <i className="icon">
+              <Search />
+            </i>
+          </li>
           <li className="nav-item">
             <Link to="/">
               <i className="icon">

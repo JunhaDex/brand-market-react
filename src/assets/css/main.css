@@ -30,7 +30,6 @@ img {
     overflow-y: auto;
     background-color: var(--color-background-1);
     box-shadow: rgba(0, 0, 0, 0.16) 0 0 8px;
-    padding-bottom: 76px; /* space for bottom nav */
 
     &.no-scroll {
         overflow: hidden;
@@ -55,6 +54,41 @@ img {
     .nav-list {
         color: var(--color-tx-gray-3);
     }
+}
 
+.search-bar {
+    position: relative;
+    padding: 1rem;
+    width: 100%;
 
+    .filter {
+        display: flex;
+        margin-top: 0.5rem;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+}
+
+.search-filter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+
+    .title {
+        flex: 0 0 auto;
+    }
+
+    .list {
+        flex: 1 1 auto;
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+        min-width: 0;
+    }
+}
+
+.search-sort {
+    flex: 0 0 auto;
 }

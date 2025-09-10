@@ -1,0 +1,53 @@
+.productList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* 반응형 디자인에서 적용 */
+/*@media (min-width: 431px) {
+    .product-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 769px) {
+    .product-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}*/
+
+.itemCard {
+    display: block;
+    width: 100%;
+
+    .preview {
+        position: relative;
+        background-color: var(--color-background-2);
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 0.5rem;
+
+        .badgePreview {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+        }
+    }
+
+    .details {
+        & p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: var(--text-sm);
+            color: var(--color-tx-gray-2);
+        }
+
+        & .price {
+            font-weight: var(--font-weight-semibold);
+        }
+    }
+}
