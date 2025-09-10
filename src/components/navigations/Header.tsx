@@ -13,7 +13,12 @@ export default function Header({ events }: HeaderProps) {
       <h1 className="header-content">My Application</h1>
       <nav className="nav-list">
         <ul className="flex items-center gap-2">
-          <li className="nav-item" onClick={if(events?.onSearch)events?.onSearch()}>
+          <li
+            className="nav-item"
+            onClick={() => {
+              if (events?.onSearch) events?.onSearch()
+            }}
+          >
             <i className="icon">
               <Search />
             </i>
