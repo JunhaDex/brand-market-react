@@ -1,14 +1,19 @@
 import { Store } from '@tanstack/react-store'
 
+interface ProductFilter {
+  label: string
+  value: string
+}
+
 interface HomeStoreState {
-  filterOptions: string[]
+  filterOptions: ProductFilter[]
 }
 
 const homeStore = new Store<HomeStoreState>({
   filterOptions: [],
 })
 
-function setFilterOptions(options: string[]) {
+function setFilterOptions(options: ProductFilter[]) {
   homeStore.setState((state) => ({
     ...state,
     filterOptions: options,

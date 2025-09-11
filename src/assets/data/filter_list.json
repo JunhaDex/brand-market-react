@@ -1,0 +1,22 @@
+[
+  {
+    "value": "discount",
+    "label": "지금 할인중"
+  },
+  {
+    "value": "premium",
+    "label": "프리미엄"
+  },
+  {
+    "value": "abroad",
+    "label": "해외직구"
+  },
+  {
+    "value": "new",
+    "label": "신상품"
+  },
+  {
+    "value": "season",
+    "label": "시즌 한정"
+  }
+]

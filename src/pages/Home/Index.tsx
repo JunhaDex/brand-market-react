@@ -19,10 +19,6 @@ export default function HomePage() {
     setIsSearchOpen((v) => !v)
   }
 
-  useEffect(() => {
-    homeStore.setFilterOptions(['할인중', '신상품', '2025'])
-  }, [])
-
   return (
     <>
       <Header events={{ onSearch: toggleSearch }} />

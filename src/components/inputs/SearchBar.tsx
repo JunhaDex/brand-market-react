@@ -20,7 +20,8 @@ interface SearchBarState {
 
 type SearchBarAction =
   | { type: 'setKeyword'; payload: string }
-  | { type: 'setFilter'; payload: string }
+  | { type: 'addFilter'; payload: string }
+  | { type: 'removeFilter'; payload: string }
   | { type: 'setSort'; payload: string }
   | { type: 'reset' }
 
@@ -61,6 +62,14 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
     if (events?.onSearch) events.onSearch(value)
   }
 
+  const onChangeFilter = (filter: string, isActive: boolean) => {
+    if (isActive) {
+      dispatch({ type: 'addFilter', payload: filter })
+    } else {
+      dispatch({ type: 'removeFilter', payload: filter })
+    }
+  }
+
   return (
     <div className={`search-bar ${isOpen ? 'open' : ''}`}>
       <div className="input-wrap">
@@ -76,7 +85,10 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
         </i>
       </div>
       <div className="filter">
-        <SearchFilter selected={state.filter} />
+        <SearchFilter
+          selected={state.filter}
+          events={{ changeFilter: onChangeFilter }}
+        />
         <SearchSort />
       </div>
     </div>

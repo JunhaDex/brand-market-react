@@ -6,6 +6,7 @@ import type {
   PageResponse,
 } from '@/types/common.type.ts'
 import type { Product } from '@/types/product.type.ts'
+import useHomeStore from '@/stores/Home.store.ts'
 
 export class ProductService extends ApiService {
   private productKeyMapping: KeyMapping = {
@@ -19,9 +20,11 @@ export class ProductService extends ApiService {
     createdAt: 'createdAt',
     review: 'review',
   }
+  private homeStore
 
   constructor() {
     super()
+    this.homeStore = useHomeStore()
   }
 
   async getProductList(options?: {
@@ -32,16 +35,33 @@ export class ProductService extends ApiService {
     // await sleep(1000)
     const mock = (await import('@/assets/data/product_list.json'))
       .default as any
+    const filters = (await import('@/assets/data/filter_list.json'))
+      .default as any
     const nextPage = options?.page?.nextPage ?? '1'
     const raw = mock[nextPage]
     // 수신 후 데이터 가공
+    if (filters) {
+      this.homeStore.setFilterOptions(filters)
+    }
     if (raw) {
-      return {
-        meta: { ...raw.paginate },
-        list: raw.data.map((product: any) => {
-          return cleanObj<Product>(product, this.productKeyMapping)
-        }),
+      let list: Product[] = raw.data.map((product: any) => {
+        return cleanObj<Product>(product, this.productKeyMapping)
+      })
+      if (options?.page?.options?.keyword) {
+        const keyword = options.page.options.keyword
+        list = list.filter(
+          (product) =>
+            product.title.includes(keyword) ||
+            product.description.includes(keyword),
+        )
       }
+      if (options?.page?.options?.filter) {
+        const filters = options.page.options.filter
+        list = list.filter((product) =>
+          product.filters?.some((filter) => filters.includes(filter)),
+        )
+      }
+      return { meta: { ...raw.paginate }, list }
     }
     return this.emptyPage as PageResponse<Product>
   }
@@ -53,7 +73,9 @@ export class ProductService extends ApiService {
     const mock = (await import('@/assets/data/product_list.json'))
       .default as any
     for (const page of Object.values(mock) as any) {
-      const match = page?.data?.find((product: any) => product.id === id.toString())
+      const match = page?.data?.find(
+        (product: any) => product.id === id.toString(),
+      )
       if (match) {
         console.log(match)
         return cleanObj<Product>(match, this.productKeyMapping)

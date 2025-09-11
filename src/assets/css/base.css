@@ -72,6 +72,7 @@ input, textarea {
     color: var(--color-tx-gray-2);
     user-select: none;
     transition: all 0.2s ease-in-out;
+    text-wrap: nowrap;
 
     &-primary {
         background-color: var(--color-tx-primary);
