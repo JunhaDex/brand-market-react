@@ -1,4 +1,4 @@
-import type { PageResponse } from '@/types/common.interface.ts'
+import type { PageResponse } from '@/types/common.type.ts'
 
 export abstract class ApiService {
   protected emptyPage: PageResponse<unknown> = {

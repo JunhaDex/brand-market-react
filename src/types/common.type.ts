@@ -11,11 +11,13 @@ export interface PageMeta {
 
 export interface PageRequest {
   nextPage?: string
-  options?: {
-    keyword?: string
-    filter?: string[]
-    sort?: string
-  }
+  options?: ListOptions
+}
+
+export interface ListOptions {
+  keyword?: string
+  filter?: string[]
+  sort?: string
 }
 
 export type KeyMapping = { [key: string]: string }

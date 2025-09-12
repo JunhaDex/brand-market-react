@@ -15,3 +15,8 @@ count.txt
 # Project Secrets
 secret
 
+# secret
+/secret
+.env
+*.env
+.firebaserc

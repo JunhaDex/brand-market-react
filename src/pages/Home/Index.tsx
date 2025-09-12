@@ -1,35 +1,53 @@
 import styles from './Home.module.css'
 import Header from '@/components/navigations/Header.tsx'
 import SearchBar from '@/components/inputs/SearchBar.tsx'
-import ItemCard from './ItemCard.tsx'
 import ScrollObserver from '@/components/layouts/ScrollObserver.tsx'
-import { useEffect, useMemo, useState } from 'react'
-import useHomeStore from '@/stores/Home.store.ts'
+import ItemCard from './ItemCard.tsx'
+import { useState } from 'react'
 import { useInfiniteProductList } from '@/queries/Product.query.ts'
+import type { ListOptions } from '@/types/common.type.ts'
 
 export default function HomePage() {
-  const homeStore = useHomeStore()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const { data, isLoading } = useInfiniteProductList()
-  const products = useMemo(() => {
-    return data?.pages.flatMap((page) => page.list) ?? []
-  })
+  const [options, setOptions] = useState<ListOptions>({})
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteProductList(options)
+  const products = data?.pages.flatMap((page) => page.list) ?? []
 
-  function toggleSearch() {
+  const toggleSearch = () => {
     setIsSearchOpen((v) => !v)
+  }
+  const loadMore = () => {
+    console.log(isLoading, hasNextPage) // why this is false?
+    if (hasNextPage && !isFetchingNextPage) {
+      console.log('more!')
+      fetchNextPage()
+    }
   }
 
   return (
     <>
-      <Header events={{ onSearch: toggleSearch }} />
+      <Header events={{ onSearch: () => toggleSearch }} />
       <main>
-        <SearchBar isOpen={isSearchOpen} />
+        <SearchBar
+          isOpen={isSearchOpen}
+          events={{
+            onSearch: (userOption) =>
+              setOptions({
+                keyword: userOption.keyword || undefined,
+                filter: userOption.filter.length
+                  ? userOption.filter
+                  : undefined,
+                sort: userOption.sort || undefined,
+              }),
+          }}
+        />
         <div className={styles.productList}>
           {products.map((product) => (
             <ItemCard key={product.id} product={product} />
           ))}
         </div>
-        <ScrollObserver />
+        <ScrollObserver onIntersect={() => loadMore()} />
       </main>
     </>
   )

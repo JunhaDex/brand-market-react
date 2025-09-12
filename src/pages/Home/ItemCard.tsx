@@ -19,7 +19,11 @@ export default function ItemCard({ product }: ItemCardProps) {
     <span>{Number(product.price.original).toLocaleString()} 원</span>
   )
   return (
-    <Link to={`/product/${product.id}`} className={styles.itemCard}>
+    <Link
+      to="/product/$id"
+      params={{ id: product.id }}
+      className={styles.itemCard}
+    >
       <div className={styles.preview}>
         {product.tag ? (
           <span className={`badge badge-primary ${styles.badgePreview}`}>

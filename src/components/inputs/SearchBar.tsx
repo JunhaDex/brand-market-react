@@ -1,14 +1,13 @@
 import SearchFilter from '@/components/inputs/SearchFilter.tsx'
 import SearchSort from '@/components/inputs/SearchSort.tsx'
-import { useReducer } from 'react'
+import { useRef, useReducer } from 'react'
 import { Search } from 'lucide-react'
+import debounce from 'lodash/debounce'
 
 interface SearchBarProps {
   isOpen: boolean
   events?: {
-    onSearch?: (keyword: string) => void
-    changeFilter?: (filter: string) => void
-    changeSort?: (sort: string) => void
+    onSearch?: (search: SearchBarState) => void
   }
 }
 
@@ -56,18 +55,34 @@ function reducer(
 
 export default function SearchBar({ isOpen, events }: SearchBarProps) {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const debounceState = useRef(
+    debounce((nextState: SearchBarState) => {
+      if (events?.onSearch) events.onSearch(nextState)
+    }, 300),
+  )
 
   const onKeywordChange = (value: string) => {
+    const nextState = { ...state, keyword: value }
     dispatch({ type: 'setKeyword', payload: value })
-    if (events?.onSearch) events.onSearch(value)
+    debounceState.current(nextState)
   }
 
   const onChangeFilter = (filter: string, isActive: boolean) => {
+    let nextState = { ...state }
     if (isActive) {
+      nextState = { ...state, filter: [...state.filter, filter] }
       dispatch({ type: 'addFilter', payload: filter })
     } else {
+      nextState = { ...state, filter: state.filter.filter((f) => f !== filter) }
       dispatch({ type: 'removeFilter', payload: filter })
     }
+    debounceState.current(nextState)
+  }
+
+  const onChangeSort = (sort: string) => {
+    const nextState = { ...state, sort }
+    dispatch({ type: 'setSort', payload: sort })
+    debounceState.current(nextState)
   }
 
   return (
@@ -78,6 +93,7 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
           placeholder="상품명으로 검색"
           className="search-input"
           value={state.keyword}
+          onChange={(e) => onKeywordChange(e.target.value)}
           autoComplete="off"
         />
         <i className="icon icon-suffix">
@@ -89,7 +105,10 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
           selected={state.filter}
           events={{ changeFilter: onChangeFilter }}
         />
-        <SearchSort />
+        <SearchSort
+          selected={state.sort}
+          events={{ changeSort: onChangeSort }}
+        />
       </div>
     </div>
   )

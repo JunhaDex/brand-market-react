@@ -1,5 +1,5 @@
 import { ApiService } from '@/services/api.service.ts'
-import { sleep, cleanObj } from '@/utils'
+import { cleanObj } from '@/utils'
 import type {
   KeyMapping,
   PageRequest,
@@ -7,6 +7,7 @@ import type {
 } from '@/types/common.type.ts'
 import type { Product } from '@/types/product.type.ts'
 import useHomeStore from '@/stores/Home.store.ts'
+import dayjs from 'dayjs'
 
 export class ProductService extends ApiService {
   private productKeyMapping: KeyMapping = {
@@ -33,6 +34,7 @@ export class ProductService extends ApiService {
     // 실제 환경에서는 axios 를 통한 API 호출이 이루어집니다.
     // api 응답 대기 - api 응답 mock
     // await sleep(1000)
+    console.log(options?.page)
     const mock = (await import('@/assets/data/product_list.json'))
       .default as any
     const filters = (await import('@/assets/data/filter_list.json'))
@@ -61,6 +63,28 @@ export class ProductService extends ApiService {
           product.filters?.some((filter) => filters.includes(filter)),
         )
       }
+      if (options?.page?.options?.sort) {
+        if (options.page.options.sort === 'price_asc') {
+          list = list.sort(
+            (a, b) =>
+              Number(a.price.discount || a.price.original) -
+              Number(b.price.discount || b.price.original),
+          )
+        }
+        if (options.page.options.sort === 'price_desc') {
+          list = list.sort(
+            (a, b) =>
+              Number(b.price.discount || b.price.original) -
+              Number(a.price.discount || a.price.original),
+          )
+        }
+        if (options.page.options.sort === 'latest') {
+          list = list.sort((a, b) =>
+            dayjs(b.createdAt).diff(dayjs(a.createdAt)),
+          )
+        }
+      }
+      console.log(raw.paginate)
       return { meta: { ...raw.paginate }, list }
     }
     return this.emptyPage as PageResponse<Product>
@@ -77,7 +101,6 @@ export class ProductService extends ApiService {
         (product: any) => product.id === id.toString(),
       )
       if (match) {
-        console.log(match)
         return cleanObj<Product>(match, this.productKeyMapping)
       }
     }
