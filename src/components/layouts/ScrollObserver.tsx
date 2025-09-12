@@ -11,7 +11,6 @@ export default function ScrollObserver({ onIntersect }: ScrollObserverProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log('ScrollObserver: intersecting')
           onIntersect(entry)
         }
       },

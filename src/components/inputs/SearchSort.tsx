@@ -36,6 +36,7 @@ export default function SearchSort({ selected, events }: SearchSortProps) {
   }, [isOpen])
   const handleSelectSort = (value: string) => {
     if (events?.changeSort) events.changeSort(value)
+    setIsOpen(false)
   }
   return (
     <div className={`search-sort ${isOpen ? 'open' : ''}`} ref={selectRef}>

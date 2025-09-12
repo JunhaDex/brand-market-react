@@ -1,35 +1,62 @@
-import { Link } from '@tanstack/react-router'
-import { Home, Search, ShoppingCart, Sun } from 'lucide-react'
+import {
+  Link,
+  useCanGoBack,
+  useLocation,
+  useRouter,
+} from '@tanstack/react-router'
+import { ArrowLeft, Home, Search, ShoppingCart, Sun } from 'lucide-react'
 
 interface HeaderProps {
+  title: string
   events?: {
     onSearch?: () => void
   }
 }
 
-export default function Header({ events }: HeaderProps) {
+export default function Header({ title, events }: HeaderProps) {
+  const router = useRouter()
+  const hasBack = useCanGoBack()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+  const goBack = async () => {
+    if (hasBack) {
+      router.history.back()
+    } else {
+      await router.navigate({ to: '/' })
+    }
+  }
   return (
     <header className="header">
-      <h1 className="header-content">쇼핑 홈</h1>
+      {!isHome && (
+        <button className="btn btn-square" onClick={() => goBack()}>
+          <i className="icon">
+            <ArrowLeft />
+          </i>
+        </button>
+      )}
+      <h1 className="header-content">{title}</h1>
       <nav className="nav-list">
         <ul className="flex items-center gap-2">
-          <li
-            className="nav-item"
-            onClick={() => {
-              if (events?.onSearch) events?.onSearch()
-            }}
-          >
-            <i className="icon">
-              <Search />
-            </i>
-          </li>
-          <li className="nav-item">
-            <Link to="/">
+          {isHome ? (
+            <li
+              className="nav-item"
+              onClick={() => {
+                if (events?.onSearch) events.onSearch()
+              }}
+            >
               <i className="icon">
-                <Home />
+                <Search />
               </i>
-            </Link>
-          </li>
+            </li>
+          ) : (
+            <li className="nav-item">
+              <Link to="/">
+                <i className="icon">
+                  <Home />
+                </i>
+              </Link>
+            </li>
+          )}
           <li className="nav-item">
             <i className="icon">
               <Sun />

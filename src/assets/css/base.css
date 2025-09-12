@@ -12,6 +12,34 @@ input, textarea {
 }
 
 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: bottom;
+    text-align: center;
+    user-select: none;
+    transition: all .15s ease-in-out;
+    transform: translateY(0);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    /* default style: ghost */
+    color: var(--color-tx-gray-1);
+    background-color: transparent;
+
+    &:hover {
+        background-color: var(--color-background-2);
+    }
+
+    &:active {
+        background-color: var(--v-s-default-darker);
+        transform: translateY(2px);
+        box-shadow: var(--shadow-inner);
+    }
+
+    &.btn-square {
+        padding: 0.25rem;
+    }
+
 }
 
 .icon {

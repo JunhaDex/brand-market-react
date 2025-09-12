@@ -10,24 +10,19 @@ import type { ListOptions } from '@/types/common.type.ts'
 export default function HomePage() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [options, setOptions] = useState<ListOptions>({})
-  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useInfiniteProductList(options)
+  const { data, fetchNextPage } = useInfiniteProductList(options)
   const products = data?.pages.flatMap((page) => page.list) ?? []
 
   const toggleSearch = () => {
     setIsSearchOpen((v) => !v)
   }
-  const loadMore = () => {
-    console.log(isLoading, hasNextPage) // why this is false?
-    if (hasNextPage && !isFetchingNextPage) {
-      console.log('more!')
-      fetchNextPage()
-    }
+  const loadMore = async () => {
+    await fetchNextPage()
   }
 
   return (
     <>
-      <Header events={{ onSearch: () => toggleSearch }} />
+      <Header title="쇼핑 홈" events={{ onSearch: () => toggleSearch() }} />
       <main>
         <SearchBar
           isOpen={isSearchOpen}

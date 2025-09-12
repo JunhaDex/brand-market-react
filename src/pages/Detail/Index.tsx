@@ -13,7 +13,7 @@ export default function DetailPage() {
 
   return (
     <>
-      <Header />
+      <Header title="상품 상세" />
       <main>
         <div className="item-detail">
           {product && (

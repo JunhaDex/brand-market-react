@@ -34,7 +34,6 @@ export class ProductService extends ApiService {
     // 실제 환경에서는 axios 를 통한 API 호출이 이루어집니다.
     // api 응답 대기 - api 응답 mock
     // await sleep(1000)
-    console.log(options?.page)
     const mock = (await import('@/assets/data/product_list.json'))
       .default as any
     const filters = (await import('@/assets/data/filter_list.json'))
@@ -84,7 +83,6 @@ export class ProductService extends ApiService {
           )
         }
       }
-      console.log(raw.paginate)
       return { meta: { ...raw.paginate }, list }
     }
     return this.emptyPage as PageResponse<Product>

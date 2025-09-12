@@ -19,7 +19,6 @@ export function useInfiniteProductList(options?: ListOptions) {
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage) => {
-      console.log(lastPage.meta.pageNo, lastPage.meta.hasNext)
       const current = Number(lastPage.meta.pageNo)
       return lastPage.meta.hasNext ? current + 1 : undefined
     },
