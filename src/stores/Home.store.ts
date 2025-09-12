@@ -7,7 +7,7 @@ interface ProductFilter {
 
 interface HomeStoreState {
   filterOptions: ProductFilter[]
-  setFilterOptions?: (options: ProductFilter[]) => void
+  setFilterOptions: (options: ProductFilter[]) => void
 }
 
 const useHomeStore = create<HomeStoreState>((set) => ({

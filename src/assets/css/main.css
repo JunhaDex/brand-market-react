@@ -185,3 +185,24 @@ html {
         }
     }
 }
+
+.screen-timer {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, -8px);
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+
+    .timer-circle {
+        position: relative;
+        border: 2px solid var(--color-tx-primary);
+    }
+
+    &.show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+}

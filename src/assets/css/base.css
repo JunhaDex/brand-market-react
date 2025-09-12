@@ -95,6 +95,7 @@ input, textarea {
     gap: 0.25rem;
     padding: 0.25rem 0.5rem;
     border: 1px solid var(--color-border-default);
+    background-color: var(--color-background-1);
     font-size: var(--text-xs);
     font-weight: var(--font-weight-medium);
     color: var(--color-tx-gray-2);

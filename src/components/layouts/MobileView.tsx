@@ -8,7 +8,7 @@ export default function MobileView({ children }: MobileViewProps) {
   const uiMode = usePrefStore((state) => state.uiMode)
   return (
     <div className={`screen theme-${uiMode}`.trim()}>
-      <div className="app-container">{children}</div>
+      <div className="app-container" id="appContainer">{children}</div>
     </div>
   )
 }

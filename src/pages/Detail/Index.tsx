@@ -6,6 +6,7 @@ import { useProductDetail } from '@/queries/Product.query.ts'
 import { useParams } from '@tanstack/react-router'
 import styles from '@/pages/Home/Home.module.css'
 import { Star } from 'lucide-react'
+import ScreenTimer from '@/components/display/ScreenTimer.tsx'
 
 export default function DetailPage() {
   const { id } = useParams({ strict: false })
@@ -14,6 +15,7 @@ export default function DetailPage() {
   return (
     <>
       <Header title="상품 상세" />
+      <ScreenTimer isTick={true} onTimeOver={() => {}} />
       <main>
         <div className="item-detail">
           {product && (
