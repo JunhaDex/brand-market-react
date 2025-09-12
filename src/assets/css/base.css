@@ -74,7 +74,7 @@ input, textarea {
     transition: all 0.2s ease-in-out;
     text-wrap: nowrap;
 
-    &-primary {
+    &.badge-primary, &.plate-primary {
         background-color: var(--color-tx-primary);
         border-color: var(--color-tx-primary);
         color: var(--color-white);
@@ -132,11 +132,11 @@ input, textarea {
     width: 0.5rem;
     height: 0.875rem;
 
-    &-left {
+    &.vt-left {
         border-left: 2px solid var(--color-border-active);
     }
 
-    &-right {
+    &.vt-right {
         border-right: 2px solid var(--color-border-active);
     }
 }
