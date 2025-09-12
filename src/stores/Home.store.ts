@@ -1,4 +1,4 @@
-import { Store } from '@tanstack/react-store'
+import { create } from 'zustand'
 
 interface ProductFilter {
   label: string
@@ -7,22 +7,14 @@ interface ProductFilter {
 
 interface HomeStoreState {
   filterOptions: ProductFilter[]
+  setFilterOptions?: (options: ProductFilter[]) => void
 }
 
-const homeStore = new Store<HomeStoreState>({
+const useHomeStore = create<HomeStoreState>((set) => ({
   filterOptions: [],
-})
+  setFilterOptions: (options: ProductFilter[]) => {
+    set({ filterOptions: options })
+  },
+}))
 
-function setFilterOptions(options: ProductFilter[]) {
-  homeStore.setState((state) => ({
-    ...state,
-    filterOptions: options,
-  }))
-}
-
-export default function useHomeStore() {
-  return {
-    state: homeStore.state,
-    setFilterOptions,
-  }
-}
+export default useHomeStore

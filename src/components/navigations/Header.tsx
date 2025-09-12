@@ -5,6 +5,7 @@ import {
   useRouter,
 } from '@tanstack/react-router'
 import { ArrowLeft, Home, Search, ShoppingCart, Sun } from 'lucide-react'
+import usePrefStore from '@/stores/Pref.store.ts'
 
 interface HeaderProps {
   title: string
@@ -14,6 +15,7 @@ interface HeaderProps {
 }
 
 export default function Header({ title, events }: HeaderProps) {
+  const prefStore = usePrefStore()
   const router = useRouter()
   const hasBack = useCanGoBack()
   const location = useLocation()
@@ -24,6 +26,10 @@ export default function Header({ title, events }: HeaderProps) {
     } else {
       await router.navigate({ to: '/' })
     }
+  }
+  const toggleUIMode = () => {
+    const newMode = prefStore.uiMode === 'light' ? 'dark' : 'light'
+    prefStore.setUIMode(newMode)
   }
   return (
     <header className="header">
@@ -57,7 +63,7 @@ export default function Header({ title, events }: HeaderProps) {
               </Link>
             </li>
           )}
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => toggleUIMode()}>
             <i className="icon">
               <Sun />
             </i>

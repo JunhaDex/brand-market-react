@@ -31,6 +31,14 @@ html {
     &.no-scroll {
         overflow: hidden;
     }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+
 }
 
 .header {

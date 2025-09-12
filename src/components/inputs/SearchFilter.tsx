@@ -8,7 +8,6 @@ interface SearchFilterProps {
     changeFilter?: (filter: string, state: boolean) => void
   }
 }
-
 export default function SearchFilter({ selected, events }: SearchFilterProps) {
   const homeStore = useHomeStore()
   const [active, setActive] = useState<Set<string>>(() => new Set(selected))
@@ -28,7 +27,7 @@ export default function SearchFilter({ selected, events }: SearchFilterProps) {
     },
     [events],
   )
-  const options = homeStore.state.filterOptions.map((option) => (
+  const options = homeStore.filterOptions.map((option) => (
     <div
       key={option.value}
       className={`badge ${active.has(option.value) ? 'selected' : 'selectable'}`.trim()}

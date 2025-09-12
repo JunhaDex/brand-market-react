@@ -21,11 +21,11 @@ export class ProductService extends ApiService {
     createdAt: 'createdAt',
     review: 'review',
   }
-  private homeStore
+  private homeStore;
 
   constructor() {
     super()
-    this.homeStore = useHomeStore()
+    this.homeStore = useHomeStore.getState()
   }
 
   async getProductList(options?: {

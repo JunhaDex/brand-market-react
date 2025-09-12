@@ -1,6 +1,6 @@
 import SearchFilter from '@/components/inputs/SearchFilter.tsx'
 import SearchSort from '@/components/inputs/SearchSort.tsx'
-import { useRef, useReducer } from 'react'
+import { useRef, useReducer, useCallback } from 'react'
 import { Search } from 'lucide-react'
 import debounce from 'lodash/debounce'
 
@@ -61,13 +61,13 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
     }, 300),
   )
 
-  const onKeywordChange = (value: string) => {
+  const onKeywordChange = useCallback((value: string) => {
     const nextState = { ...state, keyword: value }
     dispatch({ type: 'setKeyword', payload: value })
     debounceState.current(nextState)
-  }
+  })
 
-  const onChangeFilter = (filter: string, isActive: boolean) => {
+  const onChangeFilter = useCallback((filter: string, isActive: boolean) => {
     let nextState = { ...state }
     if (isActive) {
       nextState = { ...state, filter: [...state.filter, filter] }
@@ -77,13 +77,13 @@ export default function SearchBar({ isOpen, events }: SearchBarProps) {
       dispatch({ type: 'removeFilter', payload: filter })
     }
     debounceState.current(nextState)
-  }
+  })
 
-  const onChangeSort = (sort: string) => {
+  const onChangeSort = useCallback((sort: string) => {
     const nextState = { ...state, sort }
     dispatch({ type: 'setSort', payload: sort })
     debounceState.current(nextState)
-  }
+  })
 
   return (
     <div className={`search-bar ${isOpen ? 'open' : ''}`}>
