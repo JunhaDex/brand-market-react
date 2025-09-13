@@ -1,3 +1,3 @@
 export default function CartDrawer() {
-  return <div>CartDrawer</div>
+  return <div></div>
 }

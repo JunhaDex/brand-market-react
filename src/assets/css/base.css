@@ -22,7 +22,7 @@ input, textarea {
     transform: translateY(0);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
-    /* default style: ghost */
+    font-weight: var(--font-weight-semibold);
     color: var(--color-tx-gray-1);
     background-color: transparent;
 
@@ -38,6 +38,37 @@ input, textarea {
 
     &.btn-square {
         padding: 0.25rem;
+    }
+
+    &.btn-lg {
+        padding: 0.5rem 0.75rem;
+    }
+
+    &.btn-gray {
+        color: var(--color-white);
+        background-color: var(--color-tx-gray);
+
+        &:hover {
+            background-color: var(--v-s-gray-darker);
+        }
+
+        &:active {
+            background-color: var(--v-s-gray-lighter);
+        }
+
+    }
+
+    &.btn-primary {
+        color: var(--color-white);
+        background-color: var(--color-tx-primary);
+
+        &:hover {
+            background-color: var(--v-s-primary-darker);
+        }
+
+        &:active {
+            background-color: var(--v-s-primary-lighter);
+        }
     }
 
 }

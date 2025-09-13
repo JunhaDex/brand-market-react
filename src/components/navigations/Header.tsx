@@ -4,7 +4,7 @@ import {
   useLocation,
   useRouter,
 } from '@tanstack/react-router'
-import { ArrowLeft, Home, Search, ShoppingCart, Sun } from 'lucide-react'
+import { ArrowLeft, Home, Moon, Search, ShoppingCart, Sun } from 'lucide-react'
 import usePrefStore from '@/stores/Pref.store.ts'
 
 interface HeaderProps {
@@ -65,7 +65,7 @@ export default function Header({ title, events }: HeaderProps) {
           )}
           <li className="nav-item" onClick={() => toggleUIMode()}>
             <i className="icon">
-              <Sun />
+              {prefStore.uiMode === 'light' ? <Sun /> : <Moon />}
             </i>
           </li>
           <li className="nav-item">

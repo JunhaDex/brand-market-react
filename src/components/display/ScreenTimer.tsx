@@ -1,17 +1,3 @@
-/**
- * Timer component should be displayed top center fixed position on the screen
- * Timer should be round shape
- * use Timer.store.ts
- *
- * interface TimerStoreState {
- *   seconds: number
- *   resetTimer: () => void
- *   decrementTimer: () => void
- * }
- *
- * timer should show time format mm:ss - 1 minute countdown
- * use dayjs to format 60 seconds to mm:ss
- */
 import useTimerStore from '@/stores/Timer.store.ts'
 import { useEffect, useMemo } from 'react'
 import dayjs from 'dayjs'

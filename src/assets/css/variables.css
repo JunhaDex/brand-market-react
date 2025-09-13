@@ -11,6 +11,7 @@
     --color-border-hover: #c9c9c9;
     --color-border-active: #a8a8a8;
     --color-tx-primary: #0067d6;
+    --color-tx-gray: #2e2e2e;
     --color-tx-red: #da3036;
     --color-tx-amber: #ff990a;
     --color-tx-green: #388e4a;
@@ -45,6 +46,9 @@
     --v-s-outline: var(--color-tx-gray-1);
     --v-s-outline-darkest: hsl(from var(--v-s-outline) h s calc(l - 15));
     --v-s-outline-lightest: hsl(from var(--v-s-outline) h s calc(l + 15));
+    --v-s-gray: var(--color-tx-gray);
+    --v-s-gray-darker: hsl(from var(--v-s-gray) h s calc(l - 10));
+    --v-s-gray-lighter: hsl(from var(--v-s-gray) h s calc(l + 10));
 }
 
 .theme-dark {

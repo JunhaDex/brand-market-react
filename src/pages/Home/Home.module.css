@@ -28,6 +28,7 @@
         aspect-ratio: 1;
         border-radius: 0.5rem;
         overflow: hidden;
+        margin-bottom: 0.5rem;
 
         .badgePreview {
             position: absolute;
