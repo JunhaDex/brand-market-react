@@ -1,9 +1,43 @@
+.itemDetail {
+    & .title {
+        font-size: var(--text-xl);
+        font-weight: var(--font-weight-bold);
+        margin-bottom: 1rem;
+    }
+
+    & .price {
+        gap: 0.15rem;
+        font-weight: var(--font-weight-semibold);
+        font-size: var(--text-lg);
+        line-height: 1.15;
+
+        & .before {
+            color: var(--color-tx-gray-3);
+            font-weight: var(--font-weight-medium);
+            font-size: var(--text-sm);
+
+            & .percent {
+                text-decoration: none;
+                color: var(--color-tx-red);
+                font-weight: var(--font-weight-bold);
+                margin-right: 0.25rem;
+            }
+        }
+    }
+}
+
+.itemDetailSafe {
+    padding: 1rem 1rem 72px 1rem;
+}
+
 .detailCTAContainer {
     position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: var(--layout-breakpoint);
+    width: 100%;
+    max-width: var(--layout-breakpoint);
+    background-color: var(--color-background-1);
     padding: 1rem;
     display: flex;
     gap: 0.5rem;

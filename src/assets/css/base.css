@@ -200,3 +200,65 @@ input, textarea {
         border-right: 2px solid var(--color-border-active);
     }
 }
+
+.backdrop-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    z-index: 7;
+}
+
+.drawer-wrap {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    max-width: var(--layout-breakpoint);
+    transform: translate(-50%, 100%);
+    height: 35vh;
+    max-height: 360px;
+    overflow: hidden;
+    background-color: var(--color-background-1);
+    border-radius: 1rem 1rem 0 0;
+    z-index: 12;
+    transition: transform 0.4s ease-in-out;
+
+    &.show {
+        transform: translate(-50%, 0);
+    }
+
+    .drawer-content {
+        overflow-y: auto;
+        flex: 1;
+        padding: 1rem;
+    }
+
+    .btn-wrap {
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .handle {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem 1rem 0.5rem 1rem;
+        background-color: var(--color-background-1);
+        z-index: 1;
+
+        &::before {
+            content: '';
+            width: 64px;
+            height: 6px;
+            background-color: var(--color-border-default);
+            border-radius: 999px;
+        }
+    }
+}

@@ -206,3 +206,53 @@ html {
         opacity: 1;
     }
 }
+
+.toast-wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    z-index: 6;
+    width: 100%;
+    max-width: var(--layout-breakpoint);
+    padding: 1rem 1rem 76px 1rem;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+    &.show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+
+    .toast-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 999px;
+        background-color: #4b4b4b;
+        color: var(--color-white);
+        padding: 0.75rem 1.25rem;
+        box-shadow: var(--shadow-md);
+
+
+        & .deco {
+            display: inline-block;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            background-color: var(--color-tx-green);
+            color: var(--color-white);
+        }
+    }
+}
+
+.list-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 200px;
+    color: var(--color-tx-gray-2);
+    font-size: var(--text-sm);
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 {
-  "short_name": "TanStack App",
-  "name": "Create TanStack App Sample",
+  "short_name": "쇼핑 앱 (Demo)",
+  "name": "Dex 포트폴리오 쇼핑앱 (Demo)",
   "icons": [
     {
       "src": "favicon.ico",
